@@ -1,1 +1,210 @@
-abc
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title>panesfreezer.html</title>
+
+<style>
+.main {width:760px; margin-right: auto; margin-left: auto; background-color: #fff; padding: 25px}
+body {
+margin: 0px;
+padding: 0px;
+font: 13px Arial, Helvetica, sans-serif;
+color: #212121;
+background-color: #eee;
+}
+h1, h2, h3 {
+margin-top: 0px;
+}
+h1 {
+font-size: 2.4em;
+}
+h2 {
+font-size: 1.8em;
+}
+h3 {
+font-size: 1.4em;
+}
+p, ol, ul {
+margin-bottom: 1.8em;
+line-height: 160%;
+}
+a {
+color: #175500;
+}
+a:hover {
+text-decoration: none;
+color: #FF0000;
+}
+a img {
+border: none;
+}
+table
+{
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 12px;
+margin: 25px;
+width: 480px;
+text-align: center;
+border-collapse: collapse;
+border-top: 7px solid #9baff1;
+border-bottom: 7px solid #9baff1;
+}
+th
+{
+font-size: 13px;
+font-weight: normal;
+padding: 8px;
+background: #e8edff;
+border-right: 1px solid #9baff1;
+border-left: 1px solid #9baff1;
+color: #039;
+}
+td
+{
+padding: 8px;
+background: #e8edff; border-right: 1px solid #aabcfe;
+border-left: 1px solid #aabcfe;
+color: #669;
+}
+</style>
+</head><body>
+<div class="main">
+<h1>Panes Freezer - The jquery plugin</h1>
+<h2>TOC</h2>
+<ol>
+<li><a href="#About">About</a></li>
+<li><a href="#Demo">Demo</a></li>
+<li><a href="#How_To">How To</a></li>
+<li><a href="#Supported_browser">Supported Browser</a></li>
+<li><a href="#Links">Links</a></li>
+<li><a href="#License">License</a></li>
+</ol>
+<h2><a name="About">About</a></h2>
+When working with large table, it gets a bit frustrating, when you go
+to read the data in a distant row or column and the headings at the top
+of the page or down the side of the sheet disappear.<br>
+<br>
+If you are like me, you're never quite sure if you are looking in the
+right spot so you scroll back and forth trying to read first the
+heading and then the data, heading then the data, until you're almost
+sure you have it right.<br>
+<br>
+To avoid this back and forth waste of time, use this jquery plugin.
+This plugin allows you to lock specific rows and columns so that they
+will always be visible on screen no matter how far you scroll to the
+right or down.<br>
+<br>
+Idea of this plugin is no existing coding modification need to be done,
+just with additional &lt;DIV&gt; and call the plugin code shown
+below, that's all!<br>
+<br>
+<code>
+$('#mydiv_1_0').panesfreezer({<br>
+&nbsp; &nbsp; 'headerrow': 1,<br>
+&nbsp; &nbsp; 'headercolumn' : 1<br>
+});</code><br>
+<br>
+<h2><a name="Demo"></a>Demo</h2>
+<ul>
+<li><a href="basic.html">Table with no style</a></li>
+<li><a href="tablecss.html">Table with style</a></li>
+</ul>
+<h2><a name="How_To"></a>How To</h2>
+There are few setup steps need to be done before using this
+plugin.&nbsp;
+<ol>
+<li>This plugin only work on TABLE element</li>
+<li>A DIV container wrapper needed on each TABLE element that
+using this plugin and DIV only can contain one child element which is
+TABLE. For example<br>
+<code>&lt;div id="mydiv_0_0" style="width:
+500px; height: 400px; overflow: hidden;"&gt;<br>
+&nbsp; &nbsp; &lt;table
+id="mytable_0_0"&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; .....<br>
+&nbsp; &nbsp; &lt;/table&gt;<br>
+&lt;/div&gt;</code></li>
+<li>Both DIV and TABLE element must have a unique id.</li>
+<li>DIV element must have following style<br>
+<code>Fix height, fix width and overflow set to hidden</code>
+</li>
+</ol>
+Once done. just call panefreezer as shown below at jquery
+document&nbsp;ready function <br>
+<code>
+$('#mydiv_1_0').panesfreezer({<br>
+&nbsp; &nbsp; 'headerrow': 1,<br>
+&nbsp; &nbsp; 'headercolumn' : 1<br>
+});</code><br>
+<br>
+<h2><a name="Supported_browser"></a>Supported
+browser</h2>
+Below table show the supported browser for this plugin
+<table style="text-align: left; width: 533px; height: 60px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<th>No</th>
+<th>Browser</th>
+<th>Version</th>
+<th>OS</th>
+<th style="text-align: center;">Support</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Google Chrome&nbsp;</td>
+<td>14.0.835.202 m</td>
+<td>Windows 7</td>
+<td style="text-align: center;">Y</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Firefox&nbsp;</td>
+<td>7.0</td>
+<td>Windows 7</td>
+<td style="text-align: center;">Y</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Safari </td>
+<td>5.1</td>
+<td>Windows 7</td>
+<td style="text-align: center;">Y</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Internet Explorer</td>
+<td>9</td>
+<td>n/a</td>
+<td style="text-align: center;">n</td>
+</tr>
+</tbody>
+</table>
+<ol>
+</ol>
+<h2><a name="Links"></a>Links</h2>
+jquery plugin page - <a href="http://plugins.jquery.com/project/panesfreezer">http://plugins.jquery.com/project/panesfreezer</a><br>
+Author blog - <a href="http://comcrazy-devcenter.blogspot.com/">http://comcrazy-devcenter.blogspot.com/</a>
+@ <a href="http://comcrazy.info/">http://comcrazy.info/</a><br>
+<br>
+<h2><a name="License"></a>License</h2>
+Copyright (c) 2011 James ong, http://comcrazy.info/<br>
+<br>
+Permission is hereby granted, free of charge, to any person obtaining<br>
+a copy of this software and associated documentation files (the<br>
+"Software"), to deal in the Software without restriction, including<br>
+without limitation the rights to use, copy, modify, merge, publish,<br>
+distribute, sublicense, and/or sell copies of the Software, and to<br>
+permit persons to whom the Software is furnished to do so, subject to<br>
+the following conditions:<br>
+<br>
+The above copyright notice and this permission notice shall be<br>
+included in all copies or substantial portions of the Software.<br>
+<br>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,<br>
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF<br>
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND<br>
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE<br>
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION<br>
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION<br>
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.<br>
+</div>
+</body></html>
