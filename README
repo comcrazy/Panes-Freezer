@@ -1,0 +1,14 @@
+Panes Freezer - The jquery plugin
+
+When working with large table, it gets a bit frustrating, when you go to read the data in a distant row or column and the headings at the top of the page or down the side of the sheet disappear. 
+
+If you are like me, you're never quite sure if you are looking in the right spot so you scroll back and forth trying to read first the heading and then the data, heading then the data, until you're almost sure you have it right. 
+
+To avoid this back and forth waste of time, use this jquery plugin. This plugin allows you to lock specific rows and columns so that they will always be visible on screen no matter how far you scroll to the right or down. 
+
+Idea of this plugin is no existing coding modification need to be done, just with additional <DIV> and call the plugin code shown below, it should work!
+
+    $('#mydiv_1_0').panesfreezer({
+        'headerrow': 1,
+        'headercolumn' : 1
+    });
