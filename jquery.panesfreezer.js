@@ -208,11 +208,20 @@
 						/* Loop each TD in the row */
                         $(firstrow).children().each(function(index) {	
 							var currtd_html = '';
+							var got_colspan = false;							
 							
 							/* Detect is td or th */
                             var $tag = $(this).is('td')?'td':$(this).is('th')?'th':'';
                             currtd_html += '<'+$tag+' ';      
                             currtd_html += methods.getElementAttribute.apply(this, new Array(this));
+							
+							if (currtd_html.match('rowspan') && $(this).attr('rowspan')>1) {							
+								$.error( 'jQuery.staticheader: Unexpected table cell with rowspan detected. Cell with rowspan must not be used as row header.' );
+							}
+							
+							if (currtd_html.match('colspan') && $(this).attr('colspan')>1) {
+								got_colspan = true;
+							}
 
 							/* Get same position cell from next row */
 							var second_row_cell = $(nextdatarow).children().get(index);															
@@ -222,26 +231,32 @@
 							var currheight = methods.getAbsoluteCellHeight($(this));
 
 							/* Store to array, but only first row */
-							if (tmp_header_row_counter == settings['headerrow']) {
+							if (column_width_repo[index] == undefined && !got_colspan) {
 								currwidth = methods.getAbsoluteCellWidth($(this));
 								column_width_repo[index] = currwidth; 							
-							} else {
+							} else if (!got_colspan){
 								/* For next row, use back the first row width */
 								currwidth = column_width_repo[index];
+							} else {
+								currwidth = methods.getAbsoluteCellWidth($(this));
 							}
 							
 							column_padding_margin_repo[index] = methods.getCellWidthOffset($(this));
 
-							/* Assign width, padding and margin on the first data row */  
-							$(second_row_cell).css('min-width', currwidth+'px');
-							$(second_row_cell).css('max-width', currwidth+'px');
-							$(second_row_cell).css('width', currwidth+'px');							
-
-							/* Asign the width */
-							if (currtd_html.match('style=')) {
-								currtd_html = currtd_html.replace(/style="/i, 'style="width:'+currwidth+'px;min-width:'+currwidth+'px; max-width:'+currwidth+'px ');  
-							} else {
-								currtd_html += 'style="width:'+currwidth+'px;min-width:'+currwidth+'px; max-width:'+currwidth+'px" ';
+							if (currwidth != 0 && !got_colspan) {
+								/* Assign width, padding and margin on the first data row */  
+								$(second_row_cell).css('min-width', currwidth+'px');
+								$(second_row_cell).css('max-width', currwidth+'px');
+								$(second_row_cell).css('width', currwidth+'px');							
+							}
+							
+							if (currwidth != 0) {
+								/* Asign the width */
+								if (currtd_html.match('style=')) {
+									currtd_html = currtd_html.replace(/style="/i, 'style="width:'+currwidth+'px;min-width:'+currwidth+'px; max-width:'+currwidth+'px ');  
+								} else {
+									currtd_html += 'style="width:'+currwidth+'px;min-width:'+currwidth+'px; max-width:'+currwidth+'px" ';
+								}
 							}
 							
 							/* Set the height */
@@ -330,14 +345,15 @@
                 
                 /* Process column pane freeze */
                 if (settings['headercolumn'] > 0) {
+					var row_span_repo = new Array ();
                     var tr_data = '<tbody>';     
                     var tfoot_data = '<tfoot>';               				
                     
 					/* Get all tr in table */
-                    var $all_tr = $(thetable).find('tr');
+                    var all_tr = $(thetable).find('tr');
 					
 					/* Loop each tr */
-                    $($all_tr).each(function(index) {						
+                    $(all_tr).each(function(index) {						
                         var curr_row_height = 0;                        
 						
 						/* Check is tfoot */
@@ -351,26 +367,55 @@
 						/* Store the number of column to be freeze */
                         var tmp_header_column_counter = settings['headercolumn'];                                
                         var tmp_header_column_pos = 0;  
-                        var td_data = "";   
+                        var td_data = ""; 
+						var prev_rowspan = false;
                         
 						/* Loop each column that need to freeze */
-                        while (tmp_header_column_counter > 0) {       
+                        while (tmp_header_column_counter > 0) {   
+							var target_td_pos = tmp_header_column_pos;
+							
+							/* If got prev row span, skip the td until row span is equal to 1 */
+							if (row_span_repo[tmp_header_column_pos] != undefined && row_span_repo[tmp_header_column_pos] > 1)
+							{
+								row_span_repo[tmp_header_column_pos] = row_span_repo[tmp_header_column_pos] - 1;
+								tmp_header_column_pos ++;
+								tmp_header_column_counter --;	
+								prev_rowspan = true;
+								continue;
+							} 
+							
+							if (prev_rowspan)
+							{
+								prev_rowspan = false;
+								target_td_pos --
+							}
+							
 							/* Get current and next cell */
-                            var curr_td = $(this).children().get(tmp_header_column_pos);      
-							var next_td = $(this).children().get(tmp_header_column_pos+1);    
+                            var curr_td = $(this).children().get(target_td_pos); 
 
 							/* Check type of cell */
                             var tag = $(curr_td).is('td')? 'td':$(curr_td).is('th')?'th':'';
-                            var cell_data = "";                            
-                            
-							/* Get the height for entire row from first cell only */
-                            if (tmp_header_column_pos == 0) {
-                                curr_row_height = methods.getAbsoluteCellHeight($(curr_td));								
-                            }
+                            var cell_data = "";    
+							var is_rowspan = false;
 							
 							/* Generate opening tag */
 							cell_data += '<'+tag+' ';               
 							cell_data += methods.getElementAttribute.apply(this, new Array(curr_td));  
+
+							if (cell_data.match('colspan') && $(curr_td).attr('colspan')>1) {							
+								$.error( 'jQuery.staticheader: Unexpected table cell with colspan detected. Cell with colspan must not be used as column header.' );
+							}
+							
+							/* Store to array for next td with same pos used */
+							if (cell_data.match('rowspan') && $(curr_td).attr('rowspan')>1) {						
+								row_span_repo[tmp_header_column_pos] = $(curr_td).attr('rowspan');
+								is_rowspan = true;
+							}
+							
+							/* Get the height for entire row from first cell only */
+                            if ((tmp_header_column_pos == 0 && !is_rowspan) || tmp_header_column_pos > 0 && row_span_repo[(tmp_header_column_pos-1)] != undefined) {
+                                curr_row_height = methods.getAbsoluteCellHeight($(curr_td));								
+                            }
 							
 							/* Get current cell width from repo, if now, use current cell with */
 							var td_width = column_width_repo[tmp_header_column_pos]==undefined?$(curr_td).width():column_width_repo[tmp_header_column_pos];							
@@ -396,9 +441,7 @@
 								cell_data = cell_data.replace(/style="/i, 'style="width:'+(td_width)+'px; ');  										
 							} else if (td_width != 0) {
 								cell_data +=  ' style="width:'+(td_width)+'px" ';
-							}                                      
-
-							
+							}
 							            
 							/* set the height for the cell */
 							var td_height = methods.getAbsoluteCellHeight($(curr_td));									                              
@@ -447,17 +490,34 @@
                     });
                               
                     /* Remove td, cannot perform ealier loop because will make cell height in accurate */
-                    $all_tr = $(thetable).find('tr');
+                    all_tr = $(thetable).find('tr');
+					row_span_repo = new Array ();
 					
 					/* Loop again for all tr */
-                    $($all_tr).each(function() {
+                    $(all_tr).each(function() {
                         var will_be_remove_column = new Array(); 
                         var tmp_header_column_counter = settings['headercolumn'];                                
                         var tmp_header_column_pos = 0;  
                         
 						/* Get all the td need to be removed */
-                        while (tmp_header_column_counter > 0) {                                                        
+                        while (tmp_header_column_counter > 0) {  
+							/* If got prev row span, skip the td until row span is equal to 1 */
+							if (row_span_repo[tmp_header_column_pos] != undefined && row_span_repo[tmp_header_column_pos] > 1)
+							{
+								row_span_repo[tmp_header_column_pos] = row_span_repo[tmp_header_column_pos] - 1;
+								tmp_header_column_pos ++;
+								tmp_header_column_counter --;								
+								continue;
+							}
+							
                             var curr_td = $(this).children().get(tmp_header_column_pos);  
+							
+							/* Store to array for next td with same pos used */
+							if ($(curr_td).attr('rowspan')>1) {						
+								row_span_repo[tmp_header_column_pos] = $(curr_td).attr('rowspan');
+								is_rowspan = true;
+							}
+							
                             will_be_remove_column[tmp_header_column_pos] = curr_td;                            
                             tmp_header_column_pos ++;
                             tmp_header_column_counter --;
@@ -535,12 +595,12 @@
 			
 				/* Add horizontal scroll bar */
 				final_html += '<div id="staticheader_subhp3_'+maindiv_id+'" style="float:left">';
-				final_html += '<div id="staticheader_hscr_'+maindiv_id+'" style="overflow: auto; width: 20px; height:'+($(this).height()-(header_table_height+35))+'px;"><div style="margin: 0 0; padding:0 0; width: 1px; height: '+($(thetable).height()+35)+'px;"></div></div>';
+				final_html += '<div id="staticheader_hscr_'+maindiv_id+'" style="overflow: auto; width: 20px; height:'+($(this).height()-(header_table_height+35))+'px;"><div style="margin: 0 0; padding:0 0; width: 1px; height: '+($(thetable).height()+35)+'px;  background-color: grey"></div></div>';
 				final_html += '</div>';
 				final_html += '</div>';
 			
 				/* Add vertical scrollbar */                                    
-				final_html += '<div id="staticheader_vscr_'+maindiv_id+'" style="padding: 0px; margin-left:'+(settings['headercolumn']>0?(column_table_width+table_width_offset+(2*settings['headercolumn'])):0)+'px; float: left; overflow: auto;height: 20px; clear:both; width:'+($(this).width()-column_table_width-table_width_offset-(2*settings['headercolumn'])-20)+'"px">';
+				final_html += '<div id="staticheader_vscr_'+maindiv_id+'" style="padding: 0px; margin-left:'+(settings['headercolumn']>0?(column_table_width+table_width_offset+(2*settings['headercolumn'])):0)+'px; float: left; overflow: auto;height: 20px; clear:both; width:'+($(this).width()-column_table_width-table_width_offset-(2*settings['headercolumn'])-20)+'"px; background-color: grey">';
 				final_html += '<div style="margin: 0 0; padding:0 0;  width: '+($(thetable).width()+table_width_offset)+'px; height: 1px">';
 				final_html += '</div>';
 				final_html += '</div>';
@@ -578,7 +638,7 @@
 			
 			/* Currently not include any event attribute */
             var attr_list = ['border', 'class', 'style', 'cellpadding', 'cellspacing', 'valign', 'title', 'lang', 
-				'dir', 'accesskey', 'tabindex'];
+				'dir', 'accesskey', 'tabindex', 'colspan', 'rowspan'];
             var attr_str = '';
             
 			/* Loop each attribute and construct the attribute string again */
