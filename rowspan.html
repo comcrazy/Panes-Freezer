@@ -1,0 +1,420 @@
+<html>
+<head>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+  <!--script type="text/javascript" src="jquery-1.4.4.min.js"></script-->
+  <script type="text/javascript" src="jquery.panesfreezer.min.js"></script>
+  <title>Panes Freezer Demo - Basic Table</title>
+</head>
+
+<body>
+
+  <H1>Panes Freezer Demo</H1>
+  <OL>
+    <LI>Basic Table</LI>
+	<LI><A href="tablecss.html">Table with CSS</a></LI>
+  </OL>
+  
+  <HR/>
+  <BR/>
+  <h2 style="color: blue">Basic Table Demo</h2>
+ 
+  <div style="float: left; margin-right: 10px">
+  <div id="mydiv_0_0" style="width: 500px; height: 400px; overflow: auto;">
+    <table id="mytable_0_0" border="1" style="color: red; margin: 0px; padding: 0px" cellpadding="0" cellspacing="0">
+      <thead>
+	  	<tr>
+		<th>&nbsp;</th>
+		<th>&nbsp;</th>
+	    <th colspan="10">HEADER</th>
+	  </tr>	  
+
+        <tr>
+		<th>&nbsp;</th>
+		<td>&nbsp;</td>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">&nbsp;</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 1</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 2</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 3</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 4</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 5</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 6</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 7</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 8</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 9</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 10</th>
+        </tr>
+        <tr>
+		<th>&nbsp;</th>
+		<td>&nbsp;</td>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">&nbsp;</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 1</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 2</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 3</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 4</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 5</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 6</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 7</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 8</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 9</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 10</th>
+        </tr>		
+      </thead>
+      <tfoot>
+        <tr>
+		  <td>&nbsp;</td>
+		  <td>&nbsp;</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">&nbsp;</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 10</td>
+        </tr>
+      </tfoot>
+      <tbody>
+ 
+        <tr>
+		<th rowspan="10">Country</th>
+		<th rowspan="10">Country 2</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 1</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 2</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 3</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 4</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 5</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 6</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 7</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 8</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 9</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 10</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C10</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>  
+  <h2>3 Row 3 Column</h2>
+  <div id="mydiv_3_3" style="width: 500px; height: 400px; overflow: hidden;">
+    <table id="mytable_3_3" border="1" style="color: red; margin: 0px; padding: 0px" cellpadding="0" cellspacing="0">
+      <thead>
+ 
+
+        <tr>
+		<th>&nbsp;</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">&nbsp;</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 1</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 2</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 3</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 4</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 5</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 6</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 7</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 8</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 9</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Header 10</th>
+        </tr>
+        <tr>
+		<th>&nbsp;</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">&nbsp;</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 1</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 2</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 3</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 4</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 5</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 6</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 7</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 8</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 9</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Sub Header 10</th>
+        </tr>		
+      </thead>
+      <tfoot>
+        <tr>
+		  <td>&nbsp;</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">&nbsp;</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Footer 10</td>
+        </tr>
+      </tfoot>
+      <tbody>
+ 
+        <tr>
+		<th rowspan="10">Country</th>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 1</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R1C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 2</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R2C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 3</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R3C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 4</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R4C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 5</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R5C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 6</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R6C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 7</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R7C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 8</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R8C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 9</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R9C10</td>
+        </tr>
+        <tr>
+          <th onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">Row 10</th>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C1</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C2</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C3</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C4</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C5</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C6</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C7</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C8</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C9</td>
+          <td onclick="console.log('width:'+$(this).width()+', height:'+$(this).height())">R10C10</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  <script type="text/javascript">
+//<![CDATA[
+
+  $(function() {
+  	//jQuery.noConflict();
+   
+
+    $('#mydiv_3_3').panesfreezer({
+        'headerrow': 2,
+        'headercolumn' : 3
+    });
+  })
+//]]>
+  </script>
+</body>
+</html>
